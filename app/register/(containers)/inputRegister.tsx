@@ -1,10 +1,13 @@
 "use client";
 
-import { SubmitEvent, SubmitEventHandler, useState } from "react";
+import { useState } from "react";
 import { Eye, EyeOff } from "lucide-react";
 import { useRegister } from "../hooks";
+import { useRouter } from "next/navigation";
 
 export default function InputRegister() {
+  const router = useRouter();
+
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirm, setShowConfirm] = useState(false);
 
@@ -29,7 +32,7 @@ export default function InputRegister() {
   };
 
   return (
-    <main className="min-h-screen flex items-center justify-center bg-black px-4 relative">
+    <main className="min-h-screen flex items-center justify-center bg-black px-6 relative mt-15 mb-[88.19px]">
       {/* Gradient background */}
       <div className="absolute bottom-0 left-0 right-0 h-72 bg-linear-to-t from-purple-600 via-purple-500/40 to-transparent blur-2xl"></div>
 
@@ -153,7 +156,12 @@ export default function InputRegister() {
           {/* Login link */}
           <p className="text-center text-sm text-gray-400">
             Already have an account?{" "}
-            <span className="text-purple-400 cursor-pointer">Log in</span>
+            <span
+              onClick={() => router.push("/login")}
+              className="text-purple-400 cursor-pointer hover:underline"
+            >
+              Log in
+            </span>
           </p>
         </form>
       </div>

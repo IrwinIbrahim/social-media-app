@@ -1,5 +1,5 @@
 import { api } from "@/services/api";
-import { ILoginBody } from "@/app/login/type";
+import { ILoginBody } from "./type";
 
 export const doLogin = async (body: ILoginBody) => {
   try {
